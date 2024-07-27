@@ -1,5 +1,6 @@
 streamlit
 pandas
-plotly
+plotly.graph_objects
 mysql.connector
 matplotlib
+plotly.express
