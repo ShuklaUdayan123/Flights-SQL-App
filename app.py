@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-import plotly.graph_objects as go
-import plotly.express as px
+import plotly.graph_objects
+import plotly.express 
 
 import mysql.connector
 from mysql.connector import Error
@@ -138,7 +138,7 @@ if user_option == 'Check Flights':
 elif user_option == 'Analytics':
     airline, frequency= db.fetch_airline_frequency()
     fig = go.Figure(
-        go.Pie(
+        plotly.graph_objects.Pie(
             labels=airline,
             values=frequency,
             hoverinfo="label+percent",
@@ -151,7 +151,7 @@ elif user_option == 'Analytics':
 
     city, frequency1 = db.busy_airport()
 
-    fig= px.bar(
+    fig= plotly.express.bar(
         x=city,
         y=frequency1
     )
@@ -160,7 +160,7 @@ elif user_option == 'Analytics':
 
     date, frequency2 = db.daily_frequency()
 
-    fig= px.line(
+    fig= plotly.express.line(
         x=date,
         y=frequency2
     )
